@@ -10,6 +10,5 @@
      *
      * Main module of the application.
      */
-    angular
-        .module('angularNodeTokenAuthApp', ['ui.router']);
+    angular.module('angularNodeTokenAuthApp', ['ui.router']);
 }());
