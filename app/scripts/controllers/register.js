@@ -14,18 +14,31 @@
     RegisterController.$inject = ['$log', '$rootScope', 'alert', '$http'];
 
     function RegisterController($log, $rootScope, alert, $http) {
-        var _self = this;
+        var vm = this;
 
-        this.url = '/';
-        this.user = {};
+        vm.email;
+        vm.password;
+        vm.submit;
 
-        _self.submit = function () {
-            $log.log('test');
-            $http.post(_self.url, _self.user).success(function (response) {
+
+
+        vm.submit = function () {
+
+            var user = {
+                email: vm.email,
+                password: 'test'
+            }
+            console.log(vm.password);
+
+            $http.post('http://localhost:3000/register/', user).success(function (response) {
                 alert('success', 'OK!', 'You are now registered');
             }).error(function (error) {
                 alert('warning', 'Oops!', 'Couldn\'t register');
             });
+
         }
+
+
+
     }
 }());
